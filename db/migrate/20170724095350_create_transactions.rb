@@ -4,7 +4,7 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
 
       t.decimal :amount, precision: 8, scale: 2
       t.string :description
-      t.currency :string
+      t.string :currency
       t.datetime :transaction_date
       t.belongs_to :account
       t.timestamps

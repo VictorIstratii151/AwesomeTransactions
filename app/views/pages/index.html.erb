@@ -1,5 +1,18 @@
-<h1>pages</h1>
+<!-- <h1>pages</h1>
 
 <% if !user_signed_in? %>
     <p> register or login bih! </p>
-<% end %>
+<% end %> -->
+
+<div class="jumbotron">
+    <div class="container">
+      <h1>Welcome!</h1>
+      <p>Login or register to get started.</p>
+      <p>
+        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+      <p>
+        <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+</div>
