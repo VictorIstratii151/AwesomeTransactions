@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
+Account.create!(name: "sas", currency: "EUR", balance: 123.456, user_id: 1)
