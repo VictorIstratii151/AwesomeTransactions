@@ -3,7 +3,9 @@ window.AccountManager =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: -> 
+    new AccountManager.Routers.Accounts()
+    Backbone.history.start()
 
 $(document).ready ->
   AccountManager.initialize()
