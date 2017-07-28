@@ -66,3 +66,5 @@ gem 'jquery-turbolinks'
 gem 'jquery-rails'
 
 gem 'backbone-on-rails'
+
+gem 'responders'
