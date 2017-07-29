@@ -1,7 +1,36 @@
 
-<h2>Your accounts</h2>
-    <ul>
-        <% for account in @accounts.models: %>
-            <li><%= account.get('name') %></li>
-        <% end %>
-    </ul>
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-6">
+            <h2>Here is the list of your accounts</h2>
+        </div>
+        <div class="col-md-6 top-buffer">
+            <div class="btn btn-primary btn-lg">Create a new account</div>
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="row ">
+            <% for account in @accounts.models: %>
+                <div class="col-md-3 top-buffer">
+                    <div class="container">
+                        <p><strong>Name: </strong><%= account.get('name') %></p>
+                        <br>
+                        <p><strong>Currency: </strong><%= account.get('currency') %></p>
+                        <br>
+                        <p><strong>Balance: </strong><%= account.get('balance') %></p>
+                        <br>
+                        <div class="btn btn-primary btn-lg">More info...</div>
+                        <hr>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-sm-4">.col-sm-4</div>
+  <div class="col-sm-8">.col-sm-8</div>
+</div> -->
