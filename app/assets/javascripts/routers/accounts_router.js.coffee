@@ -15,3 +15,8 @@ class AccountManager.Routers.Accounts extends Backbone.Router
 
 
 
+    listAccounts: ->
+        alert "my accounts page"
+        view2 = new AccountManager.Views.AccountsListAccounts()
+        $('#accounts').html(view2.render().el)
+
