@@ -5,19 +5,22 @@
             <h2>Here is the list of your accounts</h2>
         </div>
         <div class="col-md-6 top-buffer">
-            <div id="create_account" class="btn btn-primary btn-lg">Create a new account</div>
+            <a href="/accounts/new">
+                <div id="create_account" class="btn btn-primary btn-lg">Create a new account</div>
+            </a>
         </div>
     </div>
   </div>
 
 <div class="container">
     <div class="row ">
-            <% for account in @accounts.models: %>
+            <% for account in @accounts.models : %>
                 <div class="col-md-3 top-buffer">
                     <div class="container">
                         <p><strong>Name: </strong><%= account.get('name') %></p>
                         <br>
-                        <p><strong>Currency: </strong><%= account.get('currency') %></p>
+
+                        <p><strong>Currency: </strong><%= (@currencies.findWhere(id: account.get('currency_id'))).get('code')  %></p>
                         <br>
                         <p><strong>Balance: </strong><%= account.get('balance') %></p>
                         <br>
