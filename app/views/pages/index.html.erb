@@ -1,18 +1,23 @@
-<!-- <h1>pages</h1>
 
-<% if !user_signed_in? %>
-    <p> register or login bih! </p>
-<% end %> -->
+<% if user_signed_in? %>
+
+  <div id="greetings"></div>
+  <div id="new_account"></div>
+  
+<% else %>
 
 <div class="jumbotron">
-    <div class="container">
-      <h1>Welcome!</h1>
-      <p>Login or register to get started.</p>
-      <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
-      <p>
-        <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary btn-lg' %>
-      </p>
-    </div>
+  <div class="container">
+    <p>Login or register to get started.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
+  </div>
 </div>
+
+<% end %>
