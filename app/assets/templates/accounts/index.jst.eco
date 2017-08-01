@@ -1,0 +1,14 @@
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-4">
+            <h2>Welcome!</h2>
+            <p>Go check your accounts</p>
+        </div>
+        <div class="col-md-4 top-buffer">
+            <a href="/accounts">
+                <div id="check_accounts" class="btn btn-primary btn-lg">Check--></div>
+            </a>
+        </div>
+    </div>
+  </div>
