@@ -5,7 +5,7 @@ window.AccountManager =
   Routers: {}
   initialize: -> 
     new AccountManager.Routers.Accounts()
-    Backbone.history.start()
+    Backbone.history.start({pushState: true})
 
 $(document).ready ->
   AccountManager.initialize()
