@@ -3,7 +3,6 @@ class AccountManager.Views.AccountsListAccounts extends Backbone.View
   template: JST['accounts/list_accounts']
 
   initialize: ->
-    @collection.on('reset', @render, this)
 
     @currencies = new AccountManager.Collections.Currencies()
     @currencies.fetch({reset: true})

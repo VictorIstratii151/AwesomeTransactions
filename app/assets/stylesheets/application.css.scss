@@ -25,3 +25,9 @@
 .alert-notice {
   @extend .alert-info;
 }
+
+.top-buffer { margin-top:20px; }
+
+.select-width {
+    width: 225px;
+  }
