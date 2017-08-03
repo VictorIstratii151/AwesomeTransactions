@@ -25,6 +25,20 @@ class AccountManager.Views.AccountsIndex extends Backbone.View
   createAccount: (event) ->
     event.preventDefault()
 
-    @collection.create name: $('#new_account_name').val(), currency_id: $('#new_account_currency').val(), balance: 0,
-      wait: true
-    $('#create_new_account')[0].reset()
+    attrs = name: $('#new_account_name').val(),
+    currency_id: $('#new_account_currency').val(),
+    balance: 0
+
+    @collection.create attrs,
+      wait: true,
+      success: -> 
+        $('#create_new_account')[0].reset()
+        alert "Created a new account!"
+      error: @handleError
+      
+
+  handleError: (account, response) ->
+    if response.status == 422
+      errors = $.parseJSON(response.responseText).errors
+      for attribute, messages of errors
+        alert "#{attribute} #{message}" for message in messages
