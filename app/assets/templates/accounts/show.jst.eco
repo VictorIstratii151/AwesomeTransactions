@@ -1,0 +1,26 @@
+<div class="col-sm-4 top-buffer">
+    <div class="container">
+
+        <p><strong>Name: </strong><%= @account.get('name') %></p>
+        <br>
+
+        <% for currency in @currencies.models : %>
+            <% if currency.get('id') == @account.get('currency_id') : %>
+                <p><strong>Currency: </strong><%= currency.get('code') %></p>
+                <br>
+            <% end %>
+        <% end %>
+
+        <p><strong>Balance: </strong><%= @account.get('balance') %></p>
+        <br>
+
+        <div class="btn-group">   
+            <div class="btn btn-primary btn-lg" id="account_info" value="<%= @account.get('id') %>">Info</div>
+
+            <div class="btn btn-primary btn-lg" id="account_remove" value="<%= @account.get('id') %>">Remove</div>
+            
+            <div class="btn btn-primary btn-lg" id="account_new_transaction" value="<%= @account.get('id') %>">New transaction</div>
+        </div>
+        <hr>
+    </div>
+</div>
