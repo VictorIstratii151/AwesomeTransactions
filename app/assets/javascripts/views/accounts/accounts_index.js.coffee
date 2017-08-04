@@ -8,6 +8,7 @@ class AccountManager.Views.AccountsIndex extends Backbone.View
   initialize: ->
     @collection.on('reset', @render, this)
     @collection.on('add', @appendAccount, this)
+    
     @currencies = new AccountManager.Collections.Currencies()
     @currencies.fetch({reset: true})
     @currencies.on('reset', @render, this)
