@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get '/accounts', to: 'accounts#index'
+  # get '/accounts', to: 'accounts#index'
 
   get '/api/currencies', to: 'currencies#index'
 
 
-  get '/accounts/new', to: 'pages#index'
+  # get '/accounts/new', to: 'pages#index'
 
+  get '/accounts/:id', to: 'pages#index'
   # match '*path', to: 'pages#index', via: [:get, :post]
 
   devise_for :users
