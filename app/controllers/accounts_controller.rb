@@ -12,6 +12,13 @@ class AccountsController < ApplicationController
     respond_with current_user.accounts.create(account_params)
   end
 
+  def show
+    respond_with current_user.accounts.find(params[:id])
+  end
+
+  def destroy
+    respond_with Account.destroy(params[:id])
+  end
 
 private
 
