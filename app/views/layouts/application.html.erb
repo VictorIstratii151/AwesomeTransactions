@@ -15,9 +15,6 @@
           <%= link_to 'Transaction Manager', root_path, class: 'navbar-brand' %>
         </div>
         <div id="navbar">
-          <ul class="nav navbar-nav">
-            <li><%= link_to 'Home', root_path %></li>
-          </ul>
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
               <li class="dropdown">
@@ -46,14 +43,12 @@
         </div>
       <% end %>
     </div>
-
-    <%= yield :top_content %>
-
     <div class="container">
-        <h1><%= yield :header %></h1>
       <%= yield %>
+    </div>
+    <hr>
+    <div class="container">
+      <h4>(C) 2017 All rights reserved</h4>
     </div>
   </body>
 </html>
-
-
