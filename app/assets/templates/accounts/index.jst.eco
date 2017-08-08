@@ -1,14 +1,40 @@
 
 <div class="jumbotron">
     <div class="container">
-        <div class="col-md-4">
-            <h2>Welcome!</h2>
-            <p>Go check your accounts</p>
+        <div class="col-md-6">
+            <h2>Hi!</h2>
+            <h2>Here is the list of your accounts</h2>
         </div>
-        <div class="col-md-4 top-buffer">
-            <a href="/accounts">
-                <div id="check_accounts" class="btn btn-primary btn-lg">Check--></div>
-            </a>
+        <div class="col-md-6 top-buffer">
+            <h2>Create a new Account</h2>
+            <form id="create_new_account">
+                <div class="form-group">
+                    <label for="new_account_name">Name:</label>
+                    <input type="text" name="name" id="new_account_name">
+                </div>
+
+                <div class="form-group">
+                  <label for="new_account_currency">Currency:</label>
+                  <select class="form-control select-width" id="new_account_currency">
+                    <% for currency in @currencies.models : %>
+                        <option value="<%= currency.get('id') %>">
+                            <%= currency.get('code') %>
+                        </option>
+                    <% end %>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Create">
+                </div>
+            </form>
         </div>
     </div>
-  </div>
+</div>
+
+<div class="container">
+    <div class="row ">
+        <div id="my_accounts"></div>
+    </div>
+</div>
+        
