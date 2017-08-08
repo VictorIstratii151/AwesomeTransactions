@@ -16,6 +16,10 @@ class AccountsController < ApplicationController
     respond_with current_user.accounts.find(params[:id])
   end
 
+  def update
+    respond_with Account.update(params[:id], account_params)
+  end
+
   def destroy
     respond_with Account.destroy(params[:id])
   end
