@@ -5,47 +5,54 @@
         <div class="jumbotron">
             
             <div class="container">
-                <p><strong>Name: </strong><%= @account.get('name') %></p>
-                <br>
-                <% for currency in @currencies.models : %>
-                    <% if currency.get('id') == @account.get('currency_id') : %>
-                        <p><strong>Currency: </strong><%= currency.get('code') %></p>
-                        <br>
-                    <% end %>
-                <% end %>
-                
-                <p><strong>Balance: </strong><%= @account.get('balance') %></p>
-                <br>
+            <p><strong>Name: </strong>
+            <form id="update_account_name">
+                <input type="text" name="name" value="<%= @account.get('name') %>" id="updated_account_name"> 
+                <input type="submit" class="btn btn-primary btn-sm" value="Update">
+                        
+            </form>
+            </p>
+            <br>
 
-                <div class="btn-group">   
-                    <div class="btn btn-primary btn-lg" id="account_edit" value="<%= @account.get('id') %>">Edit</div>
-                </div>
-                <hr>
+            <% for currency in @currencies.models : %>
+                <% if currency.get('id') == @account.get('currency_id') : %>
+                    <p><strong>Currency: </strong><%= currency.get('code') %></p>
+                    <br>
+                <% end %>
+            <% end %>
+            
+            <p><strong>Balance: </strong><%= @account.get('balance') %></p>
+            <br>
+            <hr>
             </div>
         </div>
     </div>
     <div class="col-md-6 top-buffer">
-        <div class="jumbotron">
-            <h2>Create a new Transaction</h2>
-            <form id="create_new_transaction">
-                <div class="form-group">
-                    <label for="new_transaction_date">Made on:</label>
-                    <input type="datetime-local" name="date" id="new_transaction_date">
-                </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>Create a new Transaction</h2>
+            </div>
+            <div class="panel-body">
+                <form id="create_new_transaction">
+                    <div class="form-group">
+                        <label for="new_transaction_date">Made on:</label>
+                        <input type="datetime-local" name="date" id="new_transaction_date">
+                    </div>
 
-                <div class="form-group">
-                    <label for="new_transaction_amount">Amount:</label>
-                    <input type="number" step="0.01" name="amount"id="new_transaction_amount" min="-999999" max="999999">
-                </div>
+                    <div class="form-group">
+                        <label for="new_transaction_amount">Amount:</label>
+                        <input type="number" step="0.01" name="amount"id="new_transaction_amount" min="-999999" max="999999">
+                    </div>
 
-                <div class="form-group">
-                    <label for="new_transaction_description">Description:</label>
-                    <textarea rows="10" cols="50" name="description" form="create_new_transaction" id="new_transaction_description"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="new_transaction_description">Description:</label>
+                        <textarea rows="10" cols="50" name="description" form="create_new_transaction" id="new_transaction_description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Create">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -74,7 +81,7 @@
         
         <div class="row">
             <div class="col-md-5 col-centered">
-                <% for transaction in @transactions : %>
+                <% for transaction in @transactions.reverse() : %>
                     <h4>
                     <p><strong>Made on:</strong>
                     <%= transaction.get('transaction_date') %>
