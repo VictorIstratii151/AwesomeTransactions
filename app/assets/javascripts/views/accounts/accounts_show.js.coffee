@@ -5,6 +5,7 @@ class AccountManager.Views.AccountsShow extends Backbone.View
     events:
         'submit #create_new_transaction': 'createTransaction'
         'click #home_button': 'goHome'
+        'submit #update_account_name': 'updateName'
 
     initialize: ->
         @collection.on('reset', @render, this)
@@ -16,10 +17,27 @@ class AccountManager.Views.AccountsShow extends Backbone.View
         @transactions.on('add', @render, this)
 
     goHome: ->
-        Backbone.history.navigate("", true)
+        Backbone.history.navigate("/", true)
+
+    updateName: (event) ->
+        event.preventDefault()
+
+        @model.set({name: $('#updated_account_name').val()})
+        @model.save null,
+            success: ->
+                alert "Saved!"
+            error: @handleError
+            wait: true
+
+
+    handleError: (account, response) ->
+        if response.status == 422
+          errors = $.parseJSON(response.responseText).errors
+          for attribute, messages of errors
+            alert "#{attribute} #{message}" for message in messages
 
     render: ->
-        $(@el).html(@template(account: @model, currencies: @collection, transactions: @transactions.where(account_id: @model.get('id')).reverse()))
+        $(@el).html(@template(account: @model, currencies: @collection, transactions: @transactions.where(account_id: @model.get('id'))))
         this
 
     createTransaction: (event) ->
@@ -37,3 +55,5 @@ class AccountManager.Views.AccountsShow extends Backbone.View
 
         @model.set({balance: one + two})
         @model.save()
+
+    
