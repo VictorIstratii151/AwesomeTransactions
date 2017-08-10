@@ -15,7 +15,7 @@
     <div class="btn-group">   
         <div class="btn btn-primary btn-lg" id="account_info" value="<%= @account.get('id') %>">Info</div>
 
-        <div class="btn btn-primary btn-lg" id="account_remove" value="<%= @account.get('id') %>">Remove</div>
+        <div class="btn btn-primary btn-lg" data-id="<%= @account.get('id') %>" id="account_remove" value="<%= @account.get('id') %>">Remove</div>
     </div>
     <hr>
 </div>
