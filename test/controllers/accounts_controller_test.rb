@@ -48,6 +48,8 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
+
+
   test "should destroy account" do
 
     assert_difference('@user.accounts.count', -1) do
