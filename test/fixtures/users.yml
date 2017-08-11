@@ -7,9 +7,14 @@
 one: 
   email: 'vic@example.com'
 
-two: 
+vic: 
   email: 'v1c96@mail.ru'
+  encrypted_password: <%= User.new.send(:password_digest, '123greetings') %>
 
-three:
-  email: test@example.org
+tom:
+  email: tom@example.org
+  encrypted_password: <%= User.new.send(:password_digest, '123greetings') %>
+
+john:
+  email: "john@example.com"
   encrypted_password: <%= User.new.send(:password_digest, '123greetings') %>

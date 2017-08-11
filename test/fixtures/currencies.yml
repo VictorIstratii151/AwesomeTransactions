@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  code: MyString
+eur:
+  name: "Euro"
+  code: "EUR"
 
-two:
-  name: MyString
-  code: MyString
+usd:
+  name: "American dollar"
+  code: "USD"
